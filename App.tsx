@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StatusBar, StatusBarStyle } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Chats, Profile, Contacts, Settings } from "./src/screens";
+import { AppearanceProvider, useColorScheme } from "react-native-appearance";
+import Theme from "./src/theme/theme";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const App = () => {
+  let scheme = useColorScheme();
+  let theme = Theme(scheme);
+  let invertedScheme = scheme == "dark" ? "light" : "dark" as StatusBarStyle;
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppearanceProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Chats"
+            screenOptions={{ headerShown: false }}
+          >
+            <Stack.Screen name="Chats" component={Chats}/>
+            <Stack.Screen name="Settings" component={Settings} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+      <StatusBar style={invertedScheme} backgroundColor={theme.colors.background} />
+    </AppearanceProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
