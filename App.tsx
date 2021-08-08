@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   let scheme = useColorScheme();
   let theme = Theme(scheme);
-  let invertedScheme = scheme == "dark" ? "light" : "dark" as StatusBarStyle;
+  let invertedScheme = scheme == "dark" ? "light" : ("dark" as StatusBarStyle);
   return (
     <AppearanceProvider>
       <SafeAreaProvider>
@@ -21,12 +21,15 @@ const App = () => {
             initialRouteName="Chats"
             screenOptions={{ headerShown: false }}
           >
-            <Stack.Screen name="Chats" component={Chats}/>
+            <Stack.Screen name="Chats" component={Chats} />
             <Stack.Screen name="Settings" component={Settings} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
-      <StatusBar style={invertedScheme} backgroundColor={theme.colors.background} />
+      <StatusBar
+        style={invertedScheme}
+        backgroundColor={theme.colors.background}
+      />
     </AppearanceProvider>
   );
 };

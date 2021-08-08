@@ -29,38 +29,35 @@ const Chat = (props: {
       }}
     >
       <View style={{ marginRight: 10 }}>
-        <Image
-          source={{ uri: avatarUrl }}
-          style={styles.avatarNormal}
-        />
+        <Image source={{ uri: avatarUrl }} style={styles.avatarNormal} />
       </View>
-      <View style={{width: "100%"}}>
+      <View style={{ width: "100%" }}>
         <Text style={styles.cardTitle}>{name}</Text>
         <Text style={styles.messageText}>{content as string}</Text>
       </View>
-        <Text
-          style={{
-            fontSize: 10,
-            fontStyle: "italic",
-            color: theme.colors.secondaryText,
-            position: "absolute",
-            right: 15,
-            top: 10,
-          }}
-        >
-          {lastTime}
-        </Text>
-        <View
-          style={{
-            width: 8,
-            height: 8,
-            backgroundColor: theme.colors[isOnline ? "online" : "offline"],
-            borderRadius: 10,
-            position: "absolute",
-            right: 10,
-            bottom: 10,
-          }}
-        ></View>
+      <Text
+        style={{
+          fontSize: 10,
+          fontStyle: "italic",
+          color: theme.colors.secondaryText,
+          position: "absolute",
+          right: 15,
+          top: 10,
+        }}
+      >
+        {lastTime}
+      </Text>
+      <View
+        style={{
+          width: 8,
+          height: 8,
+          backgroundColor: theme.colors[isOnline ? "online" : "offline"],
+          borderRadius: 10,
+          position: "absolute",
+          right: 10,
+          bottom: 10,
+        }}
+      ></View>
     </Card>
   );
 };

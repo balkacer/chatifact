@@ -59,9 +59,7 @@ const ChatsScreen = () => {
         }}
         keyExtractor={(item) => item.id}
       />
-      <View style={{height: 64, width: "100%"}}>
-        
-      </View>
+      <View style={{ height: 64, width: "100%" }}></View>
     </Screen>
   );
 };
