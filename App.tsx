@@ -2,14 +2,12 @@ import React from "react";
 import { StatusBar, StatusBarStyle } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Chats, Profile, Contacts, Settings } from "./src/screens";
 import { AppearanceProvider, useColorScheme } from "react-native-appearance";
 import Theme from "./src/theme/theme";
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 
 const App = () => {
   let scheme = useColorScheme();

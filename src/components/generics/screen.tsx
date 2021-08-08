@@ -2,7 +2,7 @@ import React from "react";
 import { Platform } from "react-native";
 import { useColorScheme } from "react-native-appearance";
 import { SafeAreaView } from "react-native-safe-area-context";
-import GlobalStyle from "../styles/global-style";
+import GlobalStyle from "styles/global-style";
 
 const Screen = (props: { children: any }) => {
   const { children } = props;

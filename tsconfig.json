@@ -1,10 +1,23 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "outDir": "./build",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "jsx": "react",
+    "lib": ["es2015", "es2015.promise", "es2016.array.include", "dom"],
     "strict": true,
-    "esModuleInterop": true
+    "moduleResolution": "node",
+    "paths": {
+      "components": ["./src/components"],
+      "data": ["./src/data"],
+      "theme": ["./src/theme"],
+      "styles": ["./src/styles"]
+    },
+    "baseUrl": "./src",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "esnext"
   },
   "include": [
     "./src"

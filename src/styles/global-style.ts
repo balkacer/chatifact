@@ -16,7 +16,6 @@ const GlobalStyle = (schema: ColorSchemeName = "dark", platform = "android") => 
             margin: 0
         },
         toolbar: {
-            backgroundColor: theme.colors.background,
             width: "100%",
             height: 200,
             paddingHorizontal: 10,
@@ -39,6 +38,31 @@ const GlobalStyle = (schema: ColorSchemeName = "dark", platform = "android") => 
             borderRadius: 10,
             fontSize: 16,
             color: theme.colors.text
+        },
+        card: {
+            backgroundColor: theme.colors.card,
+            padding: 10,
+            borderRadius: 10,
+            width: "100%"
+        },
+        cardTitle: {
+            color: theme.colors.title,
+            fontSize: 14,
+            fontWeight: "bold",
+            marginBottom: 4,
+        },
+        messageText: {
+            color: theme.colors.secondaryText,
+            fontSize: 12,
+            marginTop: 4
+        },
+        avatarNormal: {
+            backgroundColor: theme.colors.background,
+            borderRadius: theme.avatars.normal.r,
+            maxHeight: theme.avatars.normal.h,
+            minHeight: theme.avatars.normal.h,
+            maxWidth: theme.avatars.normal.w,
+            minWidth: theme.avatars.normal.w
         }
     })
 };
